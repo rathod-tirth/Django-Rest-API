@@ -25,8 +25,8 @@ SECRET_KEY = "django-insecure-akm749970+7w4ul45rpz9iji2ak--xa@3+lwj@+k0!&x9_jjpe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*"]
+# CSRF_TRUSTED_ORIGINS = ["http://*.on-acorn.io", "https://*.on-acorn.io"]
 
 # Application definition
 
