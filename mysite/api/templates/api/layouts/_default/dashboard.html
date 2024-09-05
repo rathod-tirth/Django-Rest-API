@@ -11,6 +11,10 @@
     <main>
       {% if page_slug == "settings" %}
         {% include "api/content/settings.html" %}
+      {% elif page_slug == "products" %}
+        {% include "api/content/crud/products.html" %}
+      {% elif page_slug == "users" %}
+        {% include "api/content/crud/users.html" %}
       {% else %}
         {% include "api/content/index.html" %}
       {% endif %}

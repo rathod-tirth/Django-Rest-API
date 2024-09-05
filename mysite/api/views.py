@@ -115,3 +115,20 @@ def pricing(request):
         "page_slug": "pricing",
     }
     return render(request, "api/layouts/_default/main.html", context)
+
+
+def products(request):
+    context = {
+        "title": "Products",
+        "footer": False,
+        "page_slug": "products",
+    }
+    return render(request, "api/layouts/_default/dashboard.html", context)
+
+def users(request):
+    context = {
+        "title": "Users",
+        "footer": False,
+        "page_slug": "users",
+    }
+    return render(request, "api/layouts/_default/dashboard.html", context)
