@@ -6,10 +6,7 @@ from .models import BlogPost
 from .serializers import BlogPostSerializer
 
 
-def index(request):
-    return render(request, "index.html")
-
-
+# API
 class BlogPostListCreate(generics.ListCreateAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
@@ -39,3 +36,21 @@ class BlogPostList(APIView):
 
         serializer = BlogPostSerializer(blog_posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+def index(request):
+    context = {
+        "title": "Admin Dashboard",
+        "description": "This is the admin dashboard.",
+        "authors": "Admin Team",
+        "robots": "index, follow",
+    }
+    return render(request, "layouts/_default/main.html", context)
+
+
+def dashboard(request):
+    return render(request, "layouts/_default/dashboard.html")
+
+
+def stacked_layout(request):
+    return render(request, "layouts/_default/stacked-layout.html")

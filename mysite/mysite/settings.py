@@ -58,7 +58,7 @@ ROOT_URLCONF = "mysite.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates"],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -125,7 +125,7 @@ STATIC_URL = "static/"
 # STATIC_ROOT = BASE_DIR / "assets"
 # MEDIA_ROOT = BASE_DIR / "media"
 
-# STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 COMPRESS_ROOT = BASE_DIR / "static"

@@ -1,0 +1,21 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "layouts/partials/header.html" %}
+    {% compress css %}
+        <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+</head>
+
+<body>
+    {% block content %}{% endblock content %}
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="{% static "/app.bundle.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
+</body>
+
+</html>
