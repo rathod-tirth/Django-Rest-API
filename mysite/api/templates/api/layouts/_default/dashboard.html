@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "api/layouts/partials/navbar-dashboard.html" %}
+<div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+
+  {% include "api/layouts/partials/sidebar.html" %}
+  
+  <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+    <main>
+      {% if page_slug == "settings" %}
+        {% include "api/content/settings.html" %}
+      {% else %}
+        {% include "api/content/index.html" %}
+      {% endif %}
+    </main>
+    {% if footer %}
+    {% include "api/layouts/partials/footer-dashboard.html" %}
+    {% endif %}
+  </div>
+
+</div>
+{% endblock content %}

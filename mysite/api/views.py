@@ -40,17 +40,38 @@ class BlogPostList(APIView):
 
 def index(request):
     context = {
-        "title": "Admin Dashboard",
-        "description": "This is the admin dashboard.",
+        "title": "Admin Main",
+        "description": "This is the admin Main.",
         "authors": "Admin Team",
         "robots": "index, follow",
+        "footer": True,
     }
-    return render(request, "layouts/_default/main.html", context)
+    return render(request, "api/layouts/_default/main.html", context)
 
 
 def dashboard(request):
-    return render(request, "layouts/_default/dashboard.html")
+    context = {
+        "title": "Admin Dasboard",
+        "description": "This is the admin dashboard.",
+        "authors": "Admin Team",
+        "robots": "index, follow",
+        "footer": True,
+        "page_slug": "dasboard",
+    }
+    return render(request, "api/layouts/_default/dashboard.html", context)
+
+
+def settings(request):
+    context = {
+        "title": "User Settings",
+        "description": "This is the User Settings.",
+        "authors": "Admin Team",
+        "robots": "index, follow",
+        "footer": True,
+        "page_slug": "settings",
+    }
+    return render(request, "api/layouts/_default/dashboard.html", context)
 
 
 def stacked_layout(request):
-    return render(request, "layouts/_default/stacked-layout.html")
+    return render(request, "api/layouts/_default/stacked-layout.html")
