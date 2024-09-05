@@ -38,7 +38,7 @@ class BlogPostList(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-def index(request):
+def main(request):
     context = {
         "title": "Admin Main",
         "description": "This is the admin Main.",
@@ -75,3 +75,23 @@ def settings(request):
 
 def stacked_layout(request):
     return render(request, "api/layouts/_default/stacked-layout.html")
+
+
+def not_found_404(request):
+    context = {
+        "title": "Not Found 404",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "404",
+    }
+    return render(request, "api/layouts/_default/main.html", context)
+
+
+def server_error_500(request):
+    context = {
+        "title": "Server Error 404",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "500",
+    }
+    return render(request, "api/layouts/_default/main.html", context)

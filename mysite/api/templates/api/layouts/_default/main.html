@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% if navbar %}
 {% include "api/layouts/partials/navbar-main.html" %}
+{% endif %}
 
 <main class="bg-gray-50 dark:bg-gray-900">
-    {% block main-content %}{% endblock main-content %}
+    {% if page_slug == "404" %}
+        {% include "api/content/pages/404.html" %}
+    {% elif page_slug == "500" %}
+        {% include "api/content/pages/500.html" %}
+    {% endif %}
 </main>
 
+{% if footer %}
 {% include "api/layouts/partials/footer-main.html" %}
+{% endif %}
+
 {% endblock content %}
