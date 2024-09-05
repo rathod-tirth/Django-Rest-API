@@ -13,6 +13,8 @@ urlpatterns = [
     path("", dashboard, name="dashboard"),
     path("settings/", settings, name="settings"),
     path("stacked-layout/", stacked_layout, name="stacked-layout"),
-    path("404/", not_found_404, name="not-found-404"),
-    path("500/", server_error_500, name="server-error-500"),
+    path("404/", not_found_404, name="404"),
+    path("500/", server_error_500, name="500"),
+    path("maintenanace/", maintenanace, name="maintenanace"),
+    path("pricing/", pricing, name="pricing"),
 ]

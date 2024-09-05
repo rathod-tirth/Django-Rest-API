@@ -95,3 +95,23 @@ def server_error_500(request):
         "page_slug": "500",
     }
     return render(request, "api/layouts/_default/main.html", context)
+
+
+def maintenanace(request):
+    context = {
+        "title": "Under Maintenance",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "maintenance",
+    }
+    return render(request, "api/layouts/_default/main.html", context)
+
+
+def pricing(request):
+    context = {
+        "title": "Pricing",
+        "navbar": True,
+        "footer": True,
+        "page_slug": "pricing",
+    }
+    return render(request, "api/layouts/_default/main.html", context)
