@@ -125,6 +125,7 @@ def products(request):
     }
     return render(request, "api/layouts/_default/dashboard.html", context)
 
+
 def users(request):
     context = {
         "title": "Users",
@@ -132,3 +133,53 @@ def users(request):
         "page_slug": "users",
     }
     return render(request, "api/layouts/_default/dashboard.html", context)
+
+
+def forgot_password(request):
+    context = {
+        "title": "Forgot Password",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "forgot_password",
+    }
+    return render(request, "api/layouts/_default/main.html", context)
+
+
+def sign_in(request):
+    context = {
+        "title": "Sign In",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "sign_in",
+    }
+    return render(request, "api/layouts/_default/main.html", context)
+
+
+def sign_up(request):
+    context = {
+        "title": "Sign Up",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "sign_up",
+    }
+    return render(request, "api/layouts/_default/main.html", context)
+
+
+def reset_password(request):
+    context = {
+        "title": "Reset Password",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "reset_password",
+    }
+    return render(request, "api/layouts/_default/main.html", context)
+
+
+def profile_lock(request):
+    context = {
+        "title": "Profile Lock",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "profile_lock",
+    }
+    return render(request, "api/layouts/_default/main.html", context)

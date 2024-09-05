@@ -19,4 +19,9 @@ urlpatterns = [
     path("page/pricing/", pricing, name="pricing"),
     path("crud/products/", products, name="products"),
     path("crud/users/", users, name="users"),
+    path("auth/forgot-password/", forgot_password, name="forgot-password"),
+    path("auth/sign-in/", sign_in, name="sign-in"),
+    path("auth/sign-up/", sign_up, name="sign-up"),
+    path("auth/reset-password/", reset_password, name="reset-password"),
+    path("auth/profile-lock/", profile_lock, name="profile-lock"),
 ]

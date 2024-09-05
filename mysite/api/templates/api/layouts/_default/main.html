@@ -15,6 +15,16 @@
         {% include "api/content/pages/maintenance.html" %}
     {% elif page_slug == "pricing" %}
         {% include "api/content/pages/pricing.html" %}
+    {% elif page_slug == "forgot_password" %}
+        {% include "api/content/authentication/forgot-password.html" %}
+    {% elif page_slug == "sign_in" %}
+        {% include "api/content/authentication/sign-in.html" %}
+    {% elif page_slug == "sign_up" %}
+        {% include "api/content/authentication/sign-up.html" %}
+    {% elif page_slug == "reset_password" %}
+        {% include "api/content/authentication/reset-password.html" %}
+    {% elif page_slug == "profile_lock" %}
+        {% include "api/content/authentication/profile-lock.html" %}
     {% endif %}
 </main>
 
