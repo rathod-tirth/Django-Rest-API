@@ -6,6 +6,10 @@ from .models import BlogPost
 from .serializers import BlogPostSerializer
 
 
+def index(request):
+    return render(request, "index.html")
+
+
 class BlogPostListCreate(generics.ListCreateAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
