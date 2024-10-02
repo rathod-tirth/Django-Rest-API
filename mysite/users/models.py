@@ -8,16 +8,15 @@ class MyUser(AbstractUser):
     pass
 
 
-M = "MALE"
-F = "FEMALE"
-O = "OTHER"
-GENDER_CHOICES = ((M, "Male"), (F, "Female"), (O, "Other"))
-
-
 class BackendUser(models.Model):
     """
-    User Model for Backend User
+    User Model for Backend Users
     """
+
+    M = "male"
+    F = "femal"
+    O = "other"
+    GENDER_CHOICES = ((M, "Male"), (F, "Female"), (O, "Other"))
 
     email = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     first_name = models.CharField(_("First Name"), max_length=50)
@@ -27,7 +26,10 @@ class BackendUser(models.Model):
         _("Gender"), max_length=7, choices=GENDER_CHOICES, default=M
     )
     address = models.TextField(_("Address"))
-    is_admin = models.BooleanField(_("Is Admin"))
+    is_admin = models.BooleanField(
+        _("Admin Status"),
+        help_text="Designate that this user has Admin access of Backend Site",
+    )
 
     def __str__(self):
         return (
