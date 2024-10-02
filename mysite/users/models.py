@@ -14,7 +14,7 @@ class BackendUser(models.Model):
     """
 
     M = "male"
-    F = "femal"
+    F = "female"
     O = "other"
     GENDER_CHOICES = ((M, "Male"), (F, "Female"), (O, "Other"))
 
