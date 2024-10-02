@@ -2,13 +2,13 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path("blogpost/", BlogPostListCreate.as_view(), name="blog-post-create"),
-    path(
-        "blogpost/<int:pk>",
-        BlogPostRetrieveUpdateDestroy.as_view(),
-        name="blog-post-update-delete",
-    ),
-    path("blogpost-get/", BlogPostList.as_view(), name="blog-post-get"),
+    # path("blogpost/", BlogPostListCreate.as_view(), name="blog-post-create"),
+    # path(
+    #     "blogpost/<int:pk>",
+    #     BlogPostRetrieveUpdateDestroy.as_view(),
+    #     name="blog-post-update-delete",
+    # ),
+    # path("blogpost-get/", BlogPostList.as_view(), name="blog-post-get"),
     path("", dashboard, name="dashboard"),
     # path("main/", main, name="main"),
     path("settings/", settings, name="settings"),
