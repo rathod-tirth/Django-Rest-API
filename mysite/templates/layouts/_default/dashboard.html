@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "layouts/partials/navbar-dashboard.html" %}
+<div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+
+  {% include "layouts/partials/sidebar.html" %}
+  
+  <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+    <main>
+      {% if page_slug == "settings" %}
+        {% include "content/settings.html" %}
+      {% elif page_slug == "products" %}
+        {% include "content/crud/products.html" %}
+      {% elif page_slug == "users" %}
+        {% include "content/crud/users.html" %}
+      {% else %}
+        {% include "content/index.html" %}
+      {% endif %}
+    </main>
+    {% if footer %}
+    {% include "layouts/partials/footer-dashboard.html" %}
+    {% endif %}
+  </div>
+
+</div>
+{% endblock content %}

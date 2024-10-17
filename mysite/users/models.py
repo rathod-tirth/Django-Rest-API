@@ -37,4 +37,4 @@ class BackendUser(models.Model):
         )
 
 
-# TODO: FrontUser and BackUser with user model
+# TODO: SuperAdmin Login, Logout, Session, Add User

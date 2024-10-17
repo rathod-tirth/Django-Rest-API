@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if navbar %}
+{% include "api/layouts/partials/navbar-main.html" %}
+{% endif %}
+
+<main class="bg-gray-50 dark:bg-gray-900">
+    {% if page_slug == "404" %}
+        {% include "api/content/pages/404.html" %}
+    {% elif page_slug == "500" %}
+        {% include "api/content/pages/500.html" %}
+    {% elif page_slug == "maintenance" %}
+        {% include "api/content/pages/maintenance.html" %}
+    {% elif page_slug == "pricing" %}
+        {% include "api/content/pages/pricing.html" %}
+    {% elif page_slug == "forgot_password" %}
+        {% include "api/content/authentication/forgot-password.html" %}
+    {% elif page_slug == "sign_in" %}
+        {% include "api/content/authentication/sign-in.html" %}
+    {% elif page_slug == "sign_up" %}
+        {% include "api/content/authentication/sign-up.html" %}
+    {% elif page_slug == "reset_password" %}
+        {% include "api/content/authentication/reset-password.html" %}
+    {% elif page_slug == "profile_lock" %}
+        {% include "api/content/authentication/profile-lock.html" %}
+    {% endif %}
+</main>
+
+{% if footer %}
+{% include "api/layouts/partials/footer-main.html" %}
+{% endif %}
+
+{% endblock content %}

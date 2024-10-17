@@ -29,6 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 # CSRF_TRUSTED_ORIGINS = ["http://*.on-acorn.io", "https://*.on-acorn.io"]
 
+# LOGIN_URL = "/users/sign-in.html"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -122,13 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
-# MEDIA_URL = "media/"
+MEDIA_URL = "media/"
 
-# STATIC_ROOT = BASE_DIR / "assets"
-# MEDIA_ROOT = BASE_DIR / "media"
+STATIC_ROOT = BASE_DIR / "assets"
+MEDIA_ROOT = BASE_DIR / "media"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
