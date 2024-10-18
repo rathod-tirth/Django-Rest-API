@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 # CSRF_TRUSTED_ORIGINS = ["http://*.on-acorn.io", "https://*.on-acorn.io"]
 
-# LOGIN_URL = "/users/sign-in.html"
+LOGIN_URL = "sign-in"
 
 # Application definition
 
