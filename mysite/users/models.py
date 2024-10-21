@@ -30,11 +30,15 @@ class BackendUser(models.Model):
         _("Admin Status"),
         help_text="Designate that this user has Admin access of Backend Site",
     )
+    avatar = models.ImageField(
+        _("Avatar"),
+        max_length=100,
+        blank=True,
+        default="avatar.png",
+    )
 
     def __str__(self):
-        return (
-            f"{self.first_name.capitalize} {self.last_name.capitalize} | {self.email}"
-        )
+        return f"{self.first_name} {self.last_name} | {self.email}"
 
 
 # TODO: SuperAdmin Login, Logout, Session, Add User

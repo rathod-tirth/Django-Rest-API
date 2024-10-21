@@ -88,3 +88,24 @@ def sign_out(request):
 
 def sign_up(request):
     pass
+
+
+@login_required
+def get_user(request):
+    if request.method == "GET":
+        backend_user_all = BackendUser.objects.all()
+        fields_name = [
+            field.get_attname_column()
+            for field in BackendUser._meta.fields
+            # if field.get_attname_column()[0] in ("id", "email_id", "gender", "is_admin")
+        ]
+        print(fields_name)
+
+        context = {
+            "title": "Users",
+            "footer": False,
+            "page_slug": "users",
+            "fields_name": fields_name,
+            "backend_user_all": backend_user_all,
+        }
+        return render(request, "layouts/_default/dashboard.html", context)

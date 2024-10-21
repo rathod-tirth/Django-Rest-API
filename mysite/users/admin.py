@@ -20,6 +20,7 @@ class BackendUserAdmin(admin.ModelAdmin):
                     ("first_name", "last_name"),
                     ("date_of_birth", "gender"),
                     "address",
+                    "avatar",
                 ],
             },
         ),
