@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .forms import *
@@ -6,6 +6,7 @@ from .forms import *
 # Create your views here.
 
 
+@login_required
 def home(request):
     context = {
         "title": "Admin Dasboard",
@@ -19,6 +20,13 @@ def home(request):
 
 
 def sign_in(request):
+    context = {
+        "title": "Sign In",
+        "navbar": False,
+        "footer": False,
+        "page_slug": "sign_in",
+    }
+
     if request.method == "POST":
         form = SignInForm(request.POST)
 
@@ -30,18 +38,19 @@ def sign_in(request):
             if user is not None:
                 login(request, user)
                 print("Logged In")
+                return redirect("home")
             else:
                 print("User Authentication Error")
+                context["form"] = form
+                context["error"] = "Incorrect Email or Password"
+                return render(request, "layouts/_default/main.html", context)
         else:
             print("Form Validation Error")
+            context["form"] = form
+            context["error"] = "Provide Proper Email and Password"
+            return render(request, "layouts/_default/main.html", context)
 
     else:
         form = SignInForm()
-        context = {
-            "title": "Sign In",
-            "navbar": False,
-            "footer": False,
-            "page_slug": "sign_in",
-            "form": form,
-        }
+        context["form"] = form
         return render(request, "layouts/_default/main.html", context)
