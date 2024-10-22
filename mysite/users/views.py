@@ -109,11 +109,14 @@ def get_user(request):
             user for user in BackendUser.objects.all() if not user.email.is_superuser
         ]
 
+        adduser_form = AddUserForm()
+
         context = {
             "title": "Users",
             "footer": False,
             "page_slug": "users",
             "columns": columns,
             "backend_user_all": backend_user_all,
+            "adduser_form": adduser_form,
         }
         return render(request, "layouts/_default/dashboard.html", context)

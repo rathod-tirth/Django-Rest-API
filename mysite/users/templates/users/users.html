@@ -224,6 +224,9 @@
             <!-- Modal body -->
             <div class="p-6 space-y-6">
                 <form action="#">
+                    {{ adduser_form }}
+                </form>
+                {% comment %} <form action="#">
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
                             <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
@@ -250,7 +253,7 @@
                     <div class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700">
                         <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Add user</button>
                     </div>
-                </form>
+                </form> {% endcomment %}
             </div>
         </div>
     </div>
