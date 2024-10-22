@@ -87,6 +87,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                        {% for user in backend_user_all %}
                         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="w-4 p-4">
                                 <div class="flex items-center">
@@ -94,19 +95,19 @@
                                     <label for="checkbox-id" class="sr-only">checkbox</label>
                                 </div>
                             </td>
+                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ user.id }}</td>
                             <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
-                                <img class="w-10 h-10 rounded-full" src="{% static "/images/users/roberta-casas.png" %} " alt="roberta-casas">
+                                <img class="w-10 h-10 rounded-full" src="{{ user.avatar.url }}" alt="{{ user.firstname }}">
                                 <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                    <div class="text-base font-semibold text-gray-900 dark:text-white">Olivia</div>
-                                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">olivia@gg.com</div>
+                                    <div class="text-base font-semibold text-gray-900 dark:text-white">{{ user.first_name.capitalize }} {{ user.last_name.capitalize }}</div>
+                                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">{{ user.email.username }}</div>
                                 </div>
                             </td>
-                            <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">Professional Photographer</td>
-                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Freelancer</td>
-                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">Romania</td>
+                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ user.date_of_birth }}</td>
+                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ user.gender.capitalize }}</td>
                             <td class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                 <div class="flex items-center">
-                                    {% if True %} <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div> {% else %} <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> {% endif %}
+                                    {% if user.is_admin %} <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div> {% else %} <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> {% endif %}
                                 </div>
                             </td>
                             <td class="p-4 space-x-2 whitespace-nowrap">
@@ -120,7 +121,7 @@
                                 </button>
                             </td>
                         </tr>
-                        
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
@@ -245,12 +246,12 @@
                             <textarea id="biography" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="👨‍💻Full-stack web developer. Open-source contributor."></textarea>
                         </div>
                     </div> 
-                </div>
-                <!-- Modal footer -->
-                <div class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700">
-                    <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Add user</button>
-                </div>
-            </form>
+                    <!-- Modal footer -->
+                    <div class="items-center p-6 border-t border-gray-200 rounded-b dark:border-gray-700">
+                        <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Add user</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

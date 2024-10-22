@@ -93,7 +93,6 @@ def sign_up(request):
 @login_required
 def get_user(request):
     if request.method == "GET":
-        backend_user_all = BackendUser.objects.all()
         columns = [
             column.verbose_name.upper()
             for column in BackendUser._meta.get_fields()
@@ -101,14 +100,14 @@ def get_user(request):
             in (
                 "id",
                 "email",
+                "date of birth",
                 "gender",
-                "avatar",
                 "admin status",
-                "first name",
-                "last name",
             )
         ]
-        print(columns)
+        backend_user_all = [
+            user for user in BackendUser.objects.all() if not user.email.is_superuser
+        ]
 
         context = {
             "title": "Users",

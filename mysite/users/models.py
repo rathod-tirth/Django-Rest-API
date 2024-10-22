@@ -34,7 +34,7 @@ class BackendUser(models.Model):
         _("Avatar"),
         max_length=100,
         blank=True,
-        default="avatar.png",
+        default="avatar/avatar.png",
     )
 
     def __str__(self):
