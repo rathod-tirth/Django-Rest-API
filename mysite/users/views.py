@@ -94,18 +94,27 @@ def sign_up(request):
 def get_user(request):
     if request.method == "GET":
         backend_user_all = BackendUser.objects.all()
-        fields_name = [
-            field.get_attname_column()
-            for field in BackendUser._meta.fields
-            # if field.get_attname_column()[0] in ("id", "email_id", "gender", "is_admin")
+        columns = [
+            column.verbose_name.upper()
+            for column in BackendUser._meta.get_fields()
+            if column.verbose_name.lower()
+            in (
+                "id",
+                "email",
+                "gender",
+                "avatar",
+                "admin status",
+                "first name",
+                "last name",
+            )
         ]
-        print(fields_name)
+        print(columns)
 
         context = {
             "title": "Users",
             "footer": False,
             "page_slug": "users",
-            "fields_name": fields_name,
+            "columns": columns,
             "backend_user_all": backend_user_all,
         }
         return render(request, "layouts/_default/dashboard.html", context)
